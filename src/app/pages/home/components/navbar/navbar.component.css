@@ -1,0 +1,35 @@
+/* Navbar styling */
+.navbar {
+  background-color: #e3f2fd; /* Vibrant light blue background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 10px 20px; /* Add some padding */
+}
+
+
+.navbar-brand {
+  color: #2196f3; /* Royal blue for brand name */
+  font-weight: bold; /* Make the brand name stand out */
+}
+
+.navbar-toggler {
+  border: none; /* Remove default border */
+  background-color: transparent; /* Transparent background */
+}
+
+.navbar-toggler .navbar-toggler-icon {
+  color: #2196f3; /* Royal blue for toggle icon */
+}
+
+.collapse.navbar-collapse {
+  overflow-y: auto; /* Enable scroll if menu gets too large */
+}
+
+.btn-outline-danger {
+  color: #2196f3; /* Royal blue for logout button text */
+  border-color: #2196f3; /* Royal blue for button border */
+  transition: background-color 0.2s ease; /* Add hover effect */
+}
+
+.btn-outline-danger:hover {
+  background-color: #1779ba; /* Darker blue on hover */
+}
