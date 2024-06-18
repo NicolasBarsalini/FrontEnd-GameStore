@@ -62,6 +62,24 @@ h2 {
   cursor: pointer;
 }
 
+.delete-button {
+  background-color: #ec0c1f; /* Royal blue button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: #ddec0c; /* Royal blue button */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .buy-button:hover {
   background-color: #1779ba; /* Darker blue on hover */
 }

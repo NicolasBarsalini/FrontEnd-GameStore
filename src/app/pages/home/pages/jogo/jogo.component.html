@@ -11,6 +11,14 @@
       <div class="buy-button-container">
         <button class="buy-button" (click)="buy(game.title)">Quero comprar</button>
       </div>
+      
+      <div class="buy-button-container">
+        <button class="delete-button" (click)="delete(game.id)">Deletar</button>
+      </div>
+
+      <div class="buy-button-container">
+        <button class="edit-button" (click)="update(game.id)">Editar</button>
+      </div>
 
       <div style="position: relative; top: 10%;">
         <p class="score"><b>Pontuação:</b> {{ game.score }}</p>

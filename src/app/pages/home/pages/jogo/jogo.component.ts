@@ -12,7 +12,7 @@ import { GameService } from 'src/app/services/GameService/game.service';
 export class JogoComponent implements OnInit {
   game: Game | undefined
 
-  constructor(private route: ActivatedRoute, private gameService: GameService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private gameService: GameService) { }
 
   ngOnInit(): void {
     this.getGame();
@@ -27,7 +27,22 @@ export class JogoComponent implements OnInit {
   }
 
   buy(name: string): void {
-    alert(`${name} adicionado ao carrinho com sucesso!`)
+    alert(`${name} adicionado à sua lista de desejo com sucesso!`)
   }
   
+  delete(id: number) {
+    this.gameService.deleteGame(id).subscribe({
+      next: () => {
+        console.log(`Jogo deletado com sucesso!`)
+        this.router.navigate(['/app'])
+      },
+      error:(err) => {
+        console.error('Error deleting game:', err);
+      }
+    });
+  }
+
+  update(id: number) {
+    this.router.navigate(['/app/edit_game', id])
+  }
 }

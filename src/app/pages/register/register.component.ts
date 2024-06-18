@@ -5,39 +5,40 @@ import { UserService } from '../../services/user.service'; // Atualize o caminho
 import { User } from '../../models/User/user.model'; // Atualize o caminho para o seu modelo
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent {
+export class registerComponent {
 
-  loginForm: FormGroup;
+  registerForm: FormGroup;
   invalidUser: boolean = false;
 
   constructor(private router: Router, private userService: UserService) {
-    this.loginForm = new FormGroup({
+    this.registerForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
   }
 
-  login() {
-    if (this.loginForm.valid) {
+  register() {
+    if (this.registerForm.valid) {
       const user: User = {
-        email: this.loginForm.value['email'],
-        password: this.loginForm.value['password'],
+        email: this.registerForm.value['email'],
+        password: this.registerForm.value['password'],
         id: 0,
-        name: ''
+        name: this.registerForm.value['name']
       };
 
-      this.userService.login(user).subscribe(
+      this.userService.register(user).subscribe(
         (        response: any) => {
-          console.log('Login successful', response);
+          console.log('register successful', response);
           // Redirecione para a página principal ou dashboard
-          this.router.navigate(['/app']);
+          this.router.navigate(['/']);
         },
         (        error: any) => {
-          console.error('Login failed', error);
+          console.error('register failed', error);
           this.invalidUser = true;
         }
       );

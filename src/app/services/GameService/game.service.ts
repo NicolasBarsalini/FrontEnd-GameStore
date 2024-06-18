@@ -22,4 +22,20 @@ export class GameService {
     console.log(this.http.get<Game>(url))
     return this.http.get<Game>(url);
   }
+
+  deleteGame(id: number): Observable<any> {
+    const url = `${this.apiUrl}/delete/${id}`
+    return this.http.delete<void>(url)
+  }
+
+  createGame(game: Game): Observable<Game> {
+    const url = `${this.apiUrl}/create`
+    return this.http.post<Game>(url, game)
+  }
+
+  updateGame(id: number, game: Game): Observable<Game> {
+    const url = `${this.apiUrl}/update/${id}`
+    return this.http.put<Game>(url, game);
+  }
 }
+
