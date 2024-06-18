@@ -25,10 +25,6 @@ export class JogoComponent implements OnInit {
       error => console.error('Erro ao buscar o jogo', error)
     );
   }
-
-  buy(name: string): void {
-    alert(`${name} adicionado à sua lista de desejo com sucesso!`)
-  }
   
   delete(id: number) {
     this.gameService.deleteGame(id).subscribe({
